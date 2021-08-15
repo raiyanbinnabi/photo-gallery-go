@@ -12,6 +12,7 @@ func handlerFunc(w http.ResponseWriter, r *http.Request) {
 	} else if r.URL.Path == "/contact" {
 		fmt.Fprintf(w, "To get in touch, please send an email <a href=\"mailto:support@lenslocked.com\">support@lenslocked.com</a>")
 	} else {
+		w.WriteHeader(http.StatusNotFound)
 		fmt.Fprint(w, "The page you were looking for was not found")
 	}
 }
